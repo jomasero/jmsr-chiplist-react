@@ -18,9 +18,16 @@ module.exports = {
       {
         test: /\.s[ac]ss$/,
         use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
+          { loader: 'style-loader'},
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[local]_[hash:base64:5]'
+              }
+            }
+          },
+          { loader: 'sass-loader' }
         ]
       }
     ],

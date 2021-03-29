@@ -1,10 +1,19 @@
 import React from 'react';
+import defaultStyles from './JmsrChipList.module.scss';
 
 const defaultChipType = { defaultChip: 'is-white' };
 
+const getAllTheClasses = (cssModule, classNames) =>
+  classNames.split(' ').reduce(
+    (names, className) => {
+      const transformedName = cssModule[className];
+      return `${names} ${transformedName ? `${transformedName}` : `${className}`}`;
+    }, '');
+
 const JmsrChipList = ({
   chips = [],
-  customTypes = {}
+  customTypes = {},
+  cssModule = {}
 }) => {
   if (!chips || chips.length === 0) { return null; }
 
@@ -16,10 +25,15 @@ const JmsrChipList = ({
     return { ...chip, 'appliedStyle': appliedStyle, 'key': index };
   });
 
+  const mergedStyles = { ...defaultStyles, ...cssModule };
+  const { tags, tag } = mergedStyles;
+
   return (
-    <div className='tags'>
+    <div className={tags}>
       {styledChips.map((chip) => (
-        <span key={chip.key} className={`tag ${(chip.appliedStyle)}`}>
+        <span key={chip.key}
+          className={`${tag}${getAllTheClasses(mergedStyles, chip.appliedStyle)}`}
+        >
           {chip.content}
         </span>  
       ))}
