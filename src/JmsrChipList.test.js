@@ -91,3 +91,13 @@ test('renders a chip with external style', () => {
 
   expect(contentElement).toHaveClass(`tag ${fullChipClassName}`);
 });
+
+test('renders custom nav element', () => {
+  const chips = [{ content: 'I\'m a nav tag' }];
+  const elementTag = 'nav';
+
+  render(<JmsrChipList chips={chips} listTagName={elementTag} />);
+  const contentElement = screen.getByText(chips[0].content);
+
+  expect(contentElement.parentElement.tagName.toLowerCase()).toBe(elementTag);
+});

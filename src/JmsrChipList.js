@@ -1,45 +1,25 @@
 import React from 'react';
-import defaultStyles from './JmsrChipList.module.scss';
-
-const defaultChipType = { defaultChip: 'is-white' };
-
-const getAllTheClasses = (cssModule, classNames) =>
-  classNames.split(' ').reduce(
-    (names, className) => {
-      const transformedName = cssModule[className];
-      return `${names} ${transformedName ? `${transformedName}` : `${className}`}`;
-    }, '');
+import useJmsrChipList from './useJmsrChipList';
+import { getACleanedTagName } from './utils/dom.utils';
 
 const JmsrChipList = ({
   chips = [],
   customTypes = {},
-  cssModule = {}
+  cssModule = {},
+  listTagName = 'div'
 }) => {
-  if (!chips || chips.length === 0) { return null; }
+  const [listClassName, styledChips]
+    = useJmsrChipList(chips, customTypes, cssModule);
 
-  const chipTypes = { ...defaultChipType, ...customTypes };
+  if (!styledChips.length) { return null; }
 
-  const styledChips = chips.map((chip, index) => {
-    const styleForChip = chipTypes[chip.type];
-    const appliedStyle = styleForChip || chipTypes.defaultChip;
-    return { ...chip, 'appliedStyle': appliedStyle, 'key': index };
-  });
-
-  const mergedStyles = { ...defaultStyles, ...cssModule };
-  const { tags, tag } = mergedStyles;
+  const ListTag = getACleanedTagName(listTagName);
 
   return (
-    <div className={tags}>
-      {styledChips.map((chip) => (
-        <span key={chip.key}
-          className={`${tag}${getAllTheClasses(mergedStyles, chip.appliedStyle)}`}
-        >
-          {chip.content}
-        </span>  
-      ))}
-    </div>
+    <ListTag className={listClassName}>
+      {styledChips}
+    </ListTag>
   );
-
 };
 
 export default JmsrChipList;
