@@ -1,20 +1,21 @@
 {
   "name": "jmsr-chiplist-react",
   "version": "0.1.0",
-  "description": "React component that renders a list of keywords. It allows Bulma framework mode and custom styles with CSS modules.",
+  "description": "React component that renders a list of keywords. It allows to configure scoped class styles with CSS modules",
   "main": "./lib/JmsrChipList.js",
-  "license": "MIT",
+  "license": "ISC",
   "scripts": {
     "build": "webpack",
     "test": "jest --watch",
-    "test-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand"
+    "test-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.14",
+    "@babel/core": "^7.13.13",
     "@babel/preset-env": "^7.13.12",
     "@babel/preset-react": "^7.13.13",
     "@testing-library/jest-dom": "^5.11.10",
@@ -34,7 +35,7 @@
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "webpack": "^5.28.0",
-    "webpack-cli": "^4.6.0"
+    "webpack-cli": "^4.5.0"
   },
   "dependencies": {}
 }
