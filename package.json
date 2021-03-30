@@ -4,6 +4,10 @@
   "description": "React component that renders a list of keywords. It allows to configure scoped class styles with CSS modules",
   "main": "./lib/JmsrChipList.js",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jomasero/jmsr-chiplist-react"
+  },
   "scripts": {
     "build": "webpack",
     "test": "jest --watch",
