@@ -82,7 +82,7 @@ const firmamentTypes = {
  */
 const FirmamentChipList = () => (
   <ChipList
-    chips={momentChips}
+    chips={firmamentChips}
     customTypes={firmamentTypes}
     cssModule={firmamentListStyles} />
 )
