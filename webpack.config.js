@@ -2,10 +2,10 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
-  entry: './src/JmsrChipList.js',
+  entry: './src/ChipList.js',
   output: {
     path: path.resolve('lib'),
-    filename: 'JmsrChipList.js',
+    filename: 'ChipList.js',
     libraryTarget: 'commonjs2',
   },
   module: {

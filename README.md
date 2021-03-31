@@ -1,18 +1,18 @@
-# JmsrChipList (React version)
+# ChipList (React version)
 
-`jmsr-chiplist-react` is a basic React component that renders a list of keywords. It allows
+`ChipList` is a basic React component that renders a list of keywords. It allows
 scoped class styles with CSS modules and takes in account global style for custom CSS frameworks.
 
 ![ChipList display](https://meaningfulgadgets.com/jmsr/img/code-assets/chiplist/screenshot.jpg "ChipList display")
 
 ## Demo
 
-[Demo at CodeSandbox](https://codesandbox.io)
+[Demo at CodeSandbox](https://codesandbox.io/s/jmsr-chiplist-react-demo-fvgig)
 
 ## Installation
 
 ```
-npm install --save jmsr-chiplist-react
+npm install --save @jmsr/chiplist-react
 ```
 You also will want to configure [CSS Modules](https://github.com/css-modules/css-modules) for
 your project to use local scoped styles for the chips.
@@ -32,7 +32,7 @@ your project to use local scoped styles for the chips.
 
 2. Declare the class names and use them in your chiplist:
 ```jsx
-import JmsrChipList from 'jmsr-chiplist-react'
+import ChipList from '@jmsr/chiplist-react'
 
 /* Each content is classified by a 'type' */
 const momentChips = [
@@ -50,14 +50,14 @@ const ambientTypes = {
 }
 
 const AmbientChipList = () => (
-  <JmsrChipList chips={momentChips} customTypes={ambientTypes} />
+  <ChipList chips={momentChips} customTypes={ambientTypes} />
 )
 ```
 
 ### Component scoped styles (CSS Modules)
 
 ```jsx
-import JmsrChipList from 'jmsr-chiplist-react'
+import ChipList from '@jmsr/chiplist-react'
 /* Import your own style class definitions in your module with CSS Modules help! */
 import firmamentListStyles from './FirmamentChipList.module.scss'
 
@@ -81,7 +81,7 @@ const firmamentTypes = {
  * to the 'FirmamentChipList' component.
  */
 const FirmamentChipList = () => (
-  <JmsrChipList
+  <ChipList
     chips={momentChips}
     customTypes={firmamentTypes}
     cssModule={firmamentListStyles} />

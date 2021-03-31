@@ -1,15 +1,15 @@
 import React from 'react';
-import useJmsrChipList from './useJmsrChipList';
+import useChipList from './useChipList';
 import { getACleanedTagName } from './utils/dom.utils';
 
-const JmsrChipList = ({
+const ChipList = ({
   chips = [],
   customTypes = {},
   cssModule = {},
   listTagName = 'div'
 }) => {
   const [listClassName, styledChips]
-    = useJmsrChipList(chips, customTypes, cssModule);
+    = useChipList(chips, customTypes, cssModule);
 
   if (!styledChips.length) { return null; }
 
@@ -22,4 +22,4 @@ const JmsrChipList = ({
   );
 };
 
-export default JmsrChipList;
+export default ChipList;

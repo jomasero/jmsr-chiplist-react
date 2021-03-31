@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import JmsrChipList from './JmsrChipList';
+import ChipList from './ChipList';
 
-jest.mock('./JmsrChipList.module.scss', () => ({
+jest.mock('./ChipList.module.scss', () => ({
   'tags': 'tags',
   'tag': 'tag'
 }));
@@ -12,7 +12,7 @@ test('renders chip content', () => {
   const chips = [{ content: 'A' }];
 
   // Action
-  render(<JmsrChipList chips={chips} />);
+  render(<ChipList chips={chips} />);
   const contentElement = screen.getByText(chips[0].content);
 
   // Assert
@@ -28,7 +28,7 @@ test('renders all the chips', () => {
     { content: 'E' }
   ];
 
-  render(<JmsrChipList chips={chips} />);
+  render(<ChipList chips={chips} />);
   const foundChips = chips.map(chipContent => screen.getByText(chipContent.content));
 
   expect(foundChips.length).toEqual(chips.length);
@@ -37,7 +37,7 @@ test('renders all the chips', () => {
 test('renders no chip', () => {
   const chips = [];
 
-  const { container } = render(<JmsrChipList chips={chips} />);
+  const { container } = render(<ChipList chips={chips} />);
 
   expect(container).toBeEmptyDOMElement();
 });
@@ -53,7 +53,7 @@ test('renders a chip with full custom style', () => {
     'extra-class': 'extra-class'
   };
 
-  render(<JmsrChipList chips={chips} customTypes={customTypes} cssModule={customCssModuleMock} />);
+  render(<ChipList chips={chips} customTypes={customTypes} cssModule={customCssModuleMock} />);
   const contentElement = screen.getByText(chips[0].content);
 
   expect(contentElement).toHaveClass(`tag ${defaultClassName}`);
@@ -68,7 +68,7 @@ test('renders a chip with partial custom style', () => {
     'extra-class': 'extra-class'
   };
 
-  render(<JmsrChipList chips={chips} customTypes={customTypes} cssModule={customCssModuleMock} />);
+  render(<ChipList chips={chips} customTypes={customTypes} cssModule={customCssModuleMock} />);
   const contentElement = screen.getByText(chips[0].content);
 
   expect(contentElement).toHaveClass(`tag ${defaultClassName}`);
@@ -86,7 +86,7 @@ test('renders a chip with external style', () => {
     // Notice that 'global-class' is not defined in this CSS module. Assumed to be a global class
   };
 
-  render(<JmsrChipList chips={chips} customTypes={customTypes} cssModule={customCssModuleMock} />);
+  render(<ChipList chips={chips} customTypes={customTypes} cssModule={customCssModuleMock} />);
   const contentElement = screen.getByText(chips[0].content);
 
   expect(contentElement).toHaveClass(`tag ${fullChipClassName}`);
@@ -96,7 +96,7 @@ test('renders custom nav element', () => {
   const chips = [{ content: 'I\'m a nav tag' }];
   const elementTag = 'nav';
 
-  render(<JmsrChipList chips={chips} listTagName={elementTag} />);
+  render(<ChipList chips={chips} listTagName={elementTag} />);
   const contentElement = screen.getByText(chips[0].content);
 
   expect(contentElement.parentElement.tagName.toLowerCase()).toBe(elementTag);

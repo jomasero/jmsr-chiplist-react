@@ -1,10 +1,10 @@
 import React from 'react';
 import { getAllTheClasses } from './utils/cssModule.utils';
-import defaultStyles from './JmsrChipList.module.scss';
+import defaultStyles from './ChipList.module.scss';
 
 const defaultChipType = { defaultChip: 'is-white' };
 
-const useJmsrChipList = (
+const useChipList = (
   chips = [],
   customTypes = {},
   cssModule = {}
@@ -38,4 +38,4 @@ const useJmsrChipList = (
   ];
 };
 
-export default useJmsrChipList;
+export default useChipList;
