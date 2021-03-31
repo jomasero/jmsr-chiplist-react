@@ -1,6 +1,6 @@
 {
   "name": "@jmsr/chiplist-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React component that renders a list of keywords. It allows to configure scoped class styles with CSS modules",
   "main": "./lib/ChipList.js",
   "license": "ISC",
