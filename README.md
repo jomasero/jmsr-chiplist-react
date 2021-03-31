@@ -7,7 +7,7 @@ scoped class styles with CSS modules and takes in account global style for custo
 
 ## Demo
 
-[Demo at CodeSandbox](https://codesandbox.io)
+[Demo at CodeSandbox](https://codesandbox.io/s/jmsr-chiplist-react-demo-fvgig)
 
 ## Installation
 
