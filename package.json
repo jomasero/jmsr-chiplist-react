@@ -1,8 +1,8 @@
 {
-  "name": "jmsr-chiplist-react",
-  "version": "1.0.0",
+  "name": "@jmsr/chiplist-react",
+  "version": "0.1.0",
   "description": "React component that renders a list of keywords. It allows to configure scoped class styles with CSS modules",
-  "main": "./lib/JmsrChipList.js",
+  "main": "./lib/ChipList.js",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -27,7 +27,6 @@
     "@types/jest": "^26.0.22",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
-    "bulma": "^0.9.2",
     "css-loader": "^5.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
